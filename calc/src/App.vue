@@ -16,6 +16,26 @@
       <button class="button" @click="operator='/(.)'">/ (без остатка)</button>
       <button class="button" @click="getResult">=</button>
     </div>
+    <div class="request">
+      <input type="checkbox" id="checkbox" v-model="checked">Показать экранную клавиатуру</input>
+      <label for="checkbox"></label>
+      <div class="keyboard" v-show="checked">
+        <div v-bind:class="{buttonnew:isActive1&&!isActive2}">
+          <button v-for="button in this.buttons" @click="operand1+=button">{{button}}</button>
+          <button @click="operand1=operand1.slice(0, -1);">Del</button>
+        </div>
+        <div v-bind:class="{buttonnew:isActive2&&!isActive1}">
+          <button v-for="button in this.buttons" @click="operand2+=button">{{button}}</button>
+          <button @click="operand2=operand2.substring(0, operand2.length - 1)">Del</button> //или так
+        </div>
+      </div>
+      <div>
+        <input type="radio" id="one" value="Один" @change=" isActive2=true; isActive1=false " v-model="picked">
+        <label for="one">Первый операнд</label>
+        <input type="radio" id="two" value="Два" @change="  isActive1=true; isActive2=false" v-model="picked">
+        <label for="two">Второй операнд</label>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -28,8 +48,12 @@ export default {
       operand1: "",
       operand2: "",
       operator: "+",
-      result: ""
-
+      result: "",
+      buttons: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,],
+      checked: "",
+      picked: "",
+      isActive1: false,
+      isActive2: true
     }
   },
   methods: {
@@ -112,5 +136,9 @@ export default {
   border: 1px solid rgba(16, 69, 171);
   margin: 0 10px;
   transform: scale(1.15);
+}
+
+.buttonnew {
+  display: none;
 }
 </style>
