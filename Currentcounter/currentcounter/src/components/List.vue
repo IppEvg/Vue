@@ -12,8 +12,10 @@
 <script>
 export default {
     name: 'ListItem',
-    props: {
-        list: Array,
+    computed: {
+        list() {
+            return this.$store.getters.getPaymentsList;
+        }
     }
 
 }

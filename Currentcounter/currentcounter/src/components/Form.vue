@@ -33,6 +33,9 @@ export default {
         onButton() {
             let newObj = { id: this.id, data: this.data, category: this.category, value: this.value };
             this.$store.commit('addNewString', newObj);
+            this.$emit('delForm');
+
+
         }
     }
 }

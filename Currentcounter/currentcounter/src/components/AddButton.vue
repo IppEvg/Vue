@@ -1,5 +1,5 @@
 <template>
-    <button v-on:click="check" class="button">
+    <button @click="onbuttonClick" class="button">
         Add new currents +
     </button>
 </template>
@@ -7,17 +7,22 @@
 <script>
 export default {
     name: 'AddButton',
-    computed: {
-        check: {
-            get() {
-
-                return this.$store.getters.getShow;
-            },
-            set() {
-                this.$store.commit('chengeShower')
-            }
+    methods: {
+        onbuttonClick() {
+            this.$emit('doclick')
         }
     }
+    // computed: {
+    //     check: {
+    //         get() {
+
+    //             return this.$store.getters.getShow;
+    //         },
+    //         set() {
+    //             this.$store.commit('chengeShower')
+    //         }
+    //     }
+    // }
 }
 
 

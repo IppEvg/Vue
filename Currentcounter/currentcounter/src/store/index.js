@@ -6,29 +6,58 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     costList: [],
-    isShow: false
   },
   getters: {
-    getPaymentsList: (state) => state.costList,
-    getShow: (state) => state.isShow,
+    getPaymentsList: (state) => state.costList
   },
   mutations: {
     setListData(state, payload) {
       state.costList = payload
     },
-    chengeShower: (state) => {
-      state.isShow = !state.isShow
-    },
     addNewString: (state, obj) => {
       state.costList = [...state.costList, obj];
-      state.isShow = false;
     }
 
 
 
   },
   actions: {
-  },
+    fetchData ({ commit }) {
+    return new Promise((resolve) => {
+      
+      setTimeout(() => {
+      resolve([
+      {
+      id:1,
+      data: '28.03.2020',
+      category: 'Food',
+      value: 169,
+      },
+      {
+      id:2,  
+      data: '24.03.2020',
+      category: 'Transport',
+      value: 360,
+      },
+      {
+      id:3,  
+      data: '24.03.2020',
+      category: 'Food',
+      value: 532,
+      },
+      {
+        id:4,  
+        data: '21.02.2020',
+        category: 'Entertainments',
+        value: 780,
+      }
+      ])
+      }, 1000)
+      })
+      .then(res => {
+      commit('setListData', res)})
+  }
+},
   modules: {
   }
 })

@@ -1,10 +1,10 @@
 
 <template>
   <div id="app">
-    <AddButton></AddButton>
-    <FormItem v-show="this.$store.state.isShow">
+    <AddButton v-on:doclick="changeMeth"></AddButton>
+    <FormItem v-show="isShow" v-on:delForm="changeMeth">
     </FormItem>
-    <ListItem v-bind:list="list">
+    <ListItem>
     </ListItem>
   </div>
 </template>
@@ -13,44 +13,24 @@
 import AddButton from "./components/AddButton.vue";
 import FormItem from "./components/Form.vue";
 import ListItem from "./components/List.vue";
-
+// import { mapGetters, mapActions } from "vuex";
 export default {
   name: 'App',
+  data() {
+    return {
+      isShow: false
+    }
+  },
   components: {
     AddButton, FormItem, ListItem
   },
-
   methods: {
-    fetchData() {
-      return [
-        { id: 1, data: '23.09.2022', category: 'food', value: 1300 },
-        { id: 2, data: '12.09.2022', category: 'transport', value: 500 },
-        { id: 3, data: '20.09.2022', category: 'health', value: 1000 },
-        { id: 4, data: '09.09.2022', category: 'entertainments', value: 3000 },
-        { id: 5, data: '18.09.2022', category: 'learning', value: 800 },
-      ]
+    changeMeth() {
+      this.isShow = !this.isShow
     }
-
-
   },
-  computed: {
-    list() {
-      return this.$store.getters.getPaymentsList
-    }
-    // check: {
-    //   set() {
-    //     this.$store.commit('chengeShower')
-    //   },
-    //   get() {
-    //     return this.$store.getters.getShow
-    //   }
-
-    // }
-  },
-
-
   mounted() {
-    this.$store.commit('setListData', this.fetchData())
+    this.$store.dispatch('fetchData')
   }
 
 
