@@ -12,17 +12,7 @@ export default {
             this.$emit('doclick')
         }
     }
-    // computed: {
-    //     check: {
-    //         get() {
 
-    //             return this.$store.getters.getShow;
-    //         },
-    //         set() {
-    //             this.$store.commit('chengeShower')
-    //         }
-    //     }
-    // }
 }
 
 
@@ -38,10 +28,12 @@ export default {
     transition: 300 ms;
     width: 25%;
     margin: 0 auto;
+    transition: all 500ms;
 }
 
 .button:hover {
     background-color: transparent;
     color: blueviolet;
+    cursor: pointer;
 }
 </style>

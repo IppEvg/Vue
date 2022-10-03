@@ -15,17 +15,15 @@
         <div class="button" v-on:click="onButton">Add new current +</div>
     </div>
 </template>
-
 <script>
-
 export default {
-    name: 'FormItem',
-
+    name: 'TransportView',
+    props: [],
     data() {
         return {
-            id: "",
-            data: "",
-            category: "",
+            id: this.$store.getters.getLength + 1,
+            data: new Date().toLocaleDateString(),
+            category: "Transport",
             value: "",
         }
     },
@@ -41,42 +39,6 @@ export default {
             this.$emit('delForm');
 
         }
-
     }
 }
-
-
 </script>
-
-<style>
-.form {
-    margin: 80px auto;
-    padding: 40px;
-    width: 1000px;
-    height: 60vh;
-    position: absolute;
-    top: 10%;
-    left: 15%;
-    background-color: white;
-    border: 1px solid grey;
-}
-
-.input-string {
-    margin: 5px 0px;
-    border-radius: 5px;
-}
-
-.button {
-    background-color: blueviolet;
-    border: 1px solid grey;
-    border-radius: 2px;
-    color: grey;
-    padding: 10px 20px;
-    transition: 300 ms;
-}
-
-.button:hover {
-    background-color: transparent;
-    color: blueviolet;
-}
-</style>

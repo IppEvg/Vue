@@ -1,41 +1,21 @@
-
 <template>
   <div id="app">
-    <AddButton v-on:doclick="changeMeth"></AddButton>
-    <FormItem v-show="isShow" v-on:delForm="changeMeth">
-    </FormItem>
-    <ListItem>
-    </ListItem>
+
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/transport">add a transport payment</router-link> |
+      <router-link to="/entertainments">add a entertainments payment</router-link> |
+      <router-link to="/health">add a health payment</router-link> |
+      <router-link to="/food">add a food payment</router-link>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import AddButton from "./components/AddButton.vue";
-import FormItem from "./components/Form.vue";
-import ListItem from "./components/List.vue";
-// import { mapGetters, mapActions } from "vuex";
-export default {
-  name: 'App',
-  data() {
-    return {
-      isShow: false
-    }
-  },
-  components: {
-    AddButton, FormItem, ListItem
-  },
-  methods: {
-    changeMeth() {
-      this.isShow = !this.isShow
-    }
-  },
-  mounted() {
-    this.$store.dispatch('fetchData')
-  }
 
 
-}
-</script>
+
+
 
 <style lang="scss">
 #app {
@@ -44,6 +24,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>
