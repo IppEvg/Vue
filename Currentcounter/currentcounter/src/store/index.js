@@ -51,7 +51,7 @@ export default new Vuex.Store({
               value: 780,
             }
           ])
-        }, 1000)
+        }, 3000)
       })
         .then(res => {
           commit('setListData', res)

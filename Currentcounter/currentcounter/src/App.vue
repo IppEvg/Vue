@@ -4,7 +4,7 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/transport">add a transport payment</router-link> |
-      <router-link to="/entertainments">add a entertainments payment</router-link> |
+      <router-link to="/entertainment">add a entertainments payment</router-link> |
       <router-link to="/health">add a health payment</router-link> |
       <router-link to="/food">add a food payment</router-link>
     </nav>
@@ -37,5 +37,17 @@ nav {
       color: #42b983;
     }
   }
+}
+
+.err {
+  width: 500px;
+  height: 400px;
+  margin: 50px auto;
+  padding: 30%;
+  border: 1px solid grey;
+}
+
+h1 {
+  text-align: center;
 }
 </style>

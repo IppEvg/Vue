@@ -23,7 +23,7 @@ export default {
             id: this.$store.getters.getLength + 1,
             data: new Date().toLocaleDateString(),
             category: "Transport",
-            value: "",
+            value: ""
         }
     },
     methods: {
@@ -36,8 +36,10 @@ export default {
             }
             this.$store.commit('addNewString', newObj);
             this.$emit('delForm');
-
         }
+    },
+    created() {
+        this.$store.getters.getPaymentsList.find(({ id }) => this.$route.params.id == id)
     }
 }
 </script>

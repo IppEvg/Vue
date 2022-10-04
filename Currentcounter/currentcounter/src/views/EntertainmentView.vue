@@ -17,14 +17,13 @@
 </template>
 <script>
 export default {
-    name: 'TransportView',
-    props: [],
+    name: 'EntertainmentView',
     data() {
         return {
             id: this.$store.getters.getLength + 1,
             data: new Date().toLocaleDateString(),
-            category: "Transport",
-            value: "",
+            category: "Entertainment",
+            value: ""
         }
     },
     methods: {
@@ -37,8 +36,10 @@ export default {
             }
             this.$store.commit('addNewString', newObj);
             this.$emit('delForm');
-
         }
+    },
+    created() {
+        this.$store.getters.getPaymentsList.find(({ id }) => this.$route.params.id == id)
     }
 }
 </script>
