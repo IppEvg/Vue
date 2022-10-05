@@ -38,8 +38,13 @@ export default {
             this.$emit('delForm');
         }
     },
-    created() {
-        this.$store.getters.getPaymentsList.find(({ id }) => this.$route.params.id == id)
+    mounted() {
+        if (this.$route.params.value) {
+            this.value = this.$route.params.value;
+        }
+
+
+
     }
 }
 </script>

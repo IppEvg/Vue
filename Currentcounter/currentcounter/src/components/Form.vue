@@ -38,6 +38,7 @@ export default {
                 }
             }
             this.$store.commit('addNewString', newObj);
+            this.$store.commit('setListData', this.$state.costList);
             this.$emit('delForm');
 
         }
@@ -50,33 +51,34 @@ export default {
 
 <style>
 .form {
-    margin: 80px auto;
     padding: 40px;
-    width: 1000px;
-    height: 60vh;
-    position: absolute;
-    top: 10%;
-    left: 15%;
-    background-color: white;
+    width: 500px;
+    height: 15vh;
+    background-color: rgba(129, 129, 129, 0.938);
     border: 1px solid grey;
+    position: absolute;
+    top: 20vh;
+    left: 40vh;
+    border-radius: 20px;
 }
 
 .input-string {
     margin: 5px 0px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .button {
     background-color: blueviolet;
-    border: 1px solid grey;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 2px;
-    color: grey;
+    color: rgb(0, 0, 0);
     padding: 10px 20px;
     transition: 300 ms;
 }
 
 .button:hover {
-    background-color: transparent;
+    background-color: white;
     color: blueviolet;
 }
 </style>

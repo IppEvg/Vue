@@ -29,6 +29,8 @@ export default {
     width: 25%;
     margin: 0 auto;
     transition: all 500ms;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
 .button:hover {

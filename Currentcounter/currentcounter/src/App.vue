@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="appe">
 
     <nav>
       <router-link to="/">Home</router-link> |
@@ -8,6 +8,7 @@
       <router-link to="/health">add a health payment</router-link> |
       <router-link to="/food">add a food payment</router-link>
     </nav>
+    <div class="name">My counter of payments</div>
     <router-view></router-view>
   </div>
 </template>
@@ -18,7 +19,7 @@
 
 
 <style lang="scss">
-#app {
+#appe {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,9 +33,11 @@ nav {
   a {
     font-weight: bold;
     color: #2c3e50;
+    padding: 5px;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #259663;
+      background-color: rgb(221, 202, 221)
     }
   }
 }
@@ -49,5 +52,11 @@ nav {
 
 h1 {
   text-align: center;
+}
+
+.name {
+  color: rgb(107, 56, 155);
+  font-family: Comic, serif;
+  font-size: 25px;
 }
 </style>

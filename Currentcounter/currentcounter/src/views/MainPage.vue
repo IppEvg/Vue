@@ -5,6 +5,7 @@
         </FormItem>
         <ListItem>
         </ListItem>
+
     </div>
 </template>
 <script>
@@ -29,13 +30,10 @@ export default {
             this.isShow = !this.isShow
         }
     },
+    mounted() {
 
-    // Закомментировал, чтобы не перезаписывалась начальная страница с начальными строками
-    // каждый раз. Теперь нужно только записывать новые платежи. id при этом проверяется.
-    // и если он совпадает, то alert и нужно изменить значение id на новое.
-    // mounted() {
-    //     this.$store.dispatch('fetchData')
-    // }
+    }
+
 
 
 }
@@ -49,9 +47,14 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    border: 2px solid #7777;
+    min-height: 400px;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 10px
 }
 
-nav {
+.nav {
     padding: 30px;
 
     a {

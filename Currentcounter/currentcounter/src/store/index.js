@@ -5,7 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    costList: [],
+    costList: [{
+      id: 1,
+      data: "12.04.2022",
+      category: 'transport',
+      value: 750
+    }],
   },
   getters: {
     getPaymentsList: (state) => state.costList,
@@ -25,33 +30,8 @@ export default new Vuex.Store({
       return new Promise((resolve) => {
 
         setTimeout(() => {
-          resolve([
-            {
-              id: 1,
-              data: '28.03.2020',
-              category: 'Food',
-              value: 169,
-            },
-            {
-              id: 2,
-              data: '24.03.2020',
-              category: 'Transport',
-              value: 360,
-            },
-            {
-              id: 3,
-              data: '24.03.2020',
-              category: 'Food',
-              value: 532,
-            },
-            {
-              id: 4,
-              data: '21.02.2020',
-              category: 'Entertainments',
-              value: 780,
-            }
-          ])
-        }, 3000)
+          resolve(this.$state.costList)
+        }, 1000)
       })
         .then(res => {
           commit('setListData', res)

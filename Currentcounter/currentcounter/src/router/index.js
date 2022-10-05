@@ -11,22 +11,22 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/transport/:id?',// после ввода в путь браузера .../transport/2- страница home стерает все строки, которые были внесены, т.е. costList снова пустой.
+    path: '/:transport/:value?',// после ввода в путь браузера .../transport/2- страница home стерает все строки, которые были внесены, т.е. costList снова пустой.
     name: 'TransportView',
     component: () => import('../views/TransportView.vue')
   },
   {
-    path: '/entertainment/:id?',
+    path: '/:entertainment/:value?',
     name: 'EntertainmentView',
     component: () => import('../views/EntertainmentView.vue')
   },
   {
-    path: '/health/:id?',
+    path: '/:health/:value?',
     name: 'HealthView',
     component: () => import('../views/HealthView.vue')
   },
   {
-    path: '/food/:id?',
+    path: '/:food/:value?',
     name: 'FoodView',
     component: () => import('../views/FoodView.vue')
   },
