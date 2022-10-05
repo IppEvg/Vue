@@ -26,7 +26,7 @@ export default {
             id: "",
             data: "",
             category: "",
-            value: "",
+            value: 0
         }
     },
     methods: {
@@ -34,11 +34,14 @@ export default {
             let newObj = { id: this.id, data: this.data, category: this.category, value: this.value };
             for (var value of this.$store.state.costList) {
                 if (newObj.id == value.id) {
-                    return alert('такой id уже существует')
+                    this.id = this.$store.getters.getLength + 1;
+                    newObj.id = this.$store.getters.getLength + 1;
+                    alert('Такой id уже существует! Был добавлен платеж с id больше на 1');
                 }
             }
+
             this.$store.commit('addNewString', newObj);
-            this.$store.commit('setListData', this.$state.costList);
+            this.$store.commit('setListData', this.$store.commit('addNewString', newObj));
             this.$emit('delForm');
 
         }
@@ -52,13 +55,13 @@ export default {
 <style>
 .form {
     padding: 40px;
-    width: 500px;
+    width: 30%;
     height: 15vh;
     background-color: rgba(129, 129, 129, 0.938);
     border: 1px solid grey;
     position: absolute;
-    top: 20vh;
-    left: 40vh;
+    top: 25vh;
+    left: 32vw;
     border-radius: 20px;
 }
 

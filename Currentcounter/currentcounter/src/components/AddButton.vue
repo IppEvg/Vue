@@ -24,12 +24,12 @@ export default {
     border: 1px solid grey;
     border-radius: 2px;
     color: grey;
-    padding: 10px 20px;
+    padding: 10px 15px;
     transition: 300 ms;
-    width: 25%;
+    width: 30%;
     margin: 0 auto;
     transition: all 500ms;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 20px;
 }
 

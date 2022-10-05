@@ -30,9 +30,6 @@ export default {
             this.isShow = !this.isShow
         }
     },
-    mounted() {
-
-    }
 
 
 

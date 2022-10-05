@@ -16,17 +16,17 @@ const routes = [
     component: () => import('../views/TransportView.vue')
   },
   {
-    path: '/:entertainment/:value?',
+    path: '/entertainment/:value?',
     name: 'EntertainmentView',
     component: () => import('../views/EntertainmentView.vue')
   },
   {
-    path: '/:health/:value?',
+    path: '/health/:value?',
     name: 'HealthView',
     component: () => import('../views/HealthView.vue')
   },
   {
-    path: '/:food/:value?',
+    path: '/:food?/:value?',
     name: 'FoodView',
     component: () => import('../views/FoodView.vue')
   },

@@ -2,11 +2,11 @@
   <div id="appe">
 
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/transport">add a transport payment</router-link> |
-      <router-link to="/entertainment">add a entertainments payment</router-link> |
-      <router-link to="/health">add a health payment</router-link> |
-      <router-link to="/food">add a food payment</router-link>
+      <router-link to="/" tag="button">Home</router-link> |
+      <router-link to="/transport" tag="button">add a transport payment</router-link> |
+      <router-link to="/entertainment" tag="button">add a entertainments payment</router-link> |
+      <router-link to="/health" tag="button">add a health payment</router-link> |
+      <router-link to="/food" tag="button">add a food payment</router-link>
     </nav>
     <div class="name">My counter of payments</div>
     <router-view></router-view>

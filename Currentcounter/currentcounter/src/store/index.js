@@ -10,7 +10,13 @@ export default new Vuex.Store({
       data: "12.04.2022",
       category: 'transport',
       value: 750
-    }],
+    },{
+    id: 2,
+      data: "14.04.2022",
+      category: 'food',
+      value: 575
+    }
+  ],
   },
   getters: {
     getPaymentsList: (state) => state.costList,

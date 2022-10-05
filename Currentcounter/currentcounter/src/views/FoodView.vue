@@ -23,7 +23,7 @@ export default {
             id: this.$store.getters.getLength + 1,
             data: new Date().toLocaleDateString(),
             category: "Food",
-            value: ""
+            value: ''
         }
     },
     methods: {
@@ -31,18 +31,17 @@ export default {
             let newObj = { id: this.id, data: this.data, category: this.category, value: this.value };
             for (var value of this.$store.state.costList) {
                 if (newObj.id == value.id) {
-                    return alert('такой id уже существует')
+                    this.id = this.$store.getters.getLength + 1;
+                    newObj.id = this.$store.getters.getLength + 1;
+                    alert('Такой id уже существует! Был добавлен платеж с id больше на 1');
                 }
             }
+            if (this.$route.params.value) {
+                this.value = this.$route.params.value;
+            }
             this.$store.commit('addNewString', newObj);
-            this.$emit('delForm');
         }
-    },
-    mounted() {
-        if (this.$route.params.value) {
-            this.value = this.$route.params.value;
-        }
-
     }
+
 }
 </script>

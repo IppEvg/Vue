@@ -14,6 +14,7 @@ export default {
     name: 'ListItem',
     computed: {
         list() {
+
             return this.$store.getters.getPaymentsList;
         }
     }
