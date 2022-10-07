@@ -11,7 +11,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/:transport/:value?',// после ввода в путь браузера .../transport/2- страница home стерает все строки, которые были внесены, т.е. costList снова пустой.
+    path: '/transport/:value?',// после ввода в путь браузера .../transport/2- страница home стерает все строки, которые были внесены, т.е. costList снова пустой.
     name: 'TransportView',
     component: () => import('../views/TransportView.vue')
   },
@@ -26,7 +26,7 @@ const routes = [
     component: () => import('../views/HealthView.vue')
   },
   {
-    path: '/:food?/:value?',
+    path: '/food/:value?',
     name: 'FoodView',
     component: () => import('../views/FoodView.vue')
   },

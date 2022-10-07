@@ -5,18 +5,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    costList: [{
-      id: 1,
-      data: "12.04.2022",
-      category: 'transport',
-      value: 750
-    },{
-    id: 2,
-      data: "14.04.2022",
-      category: 'food',
-      value: 575
-    }
-  ],
+    costList: [
+      {
+        id: 1,
+        data: "12.04.2022",
+        category: 'transport',
+        value: 750,
+        menu: false
+      }, {
+        id: 2,
+        data: "14.04.2022",
+        category: 'food',
+        value: 575,
+        menu: false
+      }
+    ],
   },
   getters: {
     getPaymentsList: (state) => state.costList,
@@ -28,15 +31,17 @@ export default new Vuex.Store({
     },
     addNewString: (state, obj) => {
       state.costList = [...state.costList, obj];
+    },
+    delStr: (state, obj) => {
+      state.costList = state.costList.splice(obj, 1);
     }
-
   },
   actions: {
     fetchData({ commit }) {
       return new Promise((resolve) => {
 
         setTimeout(() => {
-          resolve(this.$state.costList)
+          resolve(this.$store.costList)
         }, 1000)
       })
         .then(res => {

@@ -26,12 +26,13 @@ export default {
             id: "",
             data: "",
             category: "",
-            value: 0
+            value: "",
+            menu: false
         }
     },
     methods: {
         onButton() {
-            let newObj = { id: this.id, data: this.data, category: this.category, value: this.value };
+            let newObj = { id: this.id, data: this.data, category: this.category, value: this.value, menu: this.true };
             for (var value of this.$store.state.costList) {
                 if (newObj.id == value.id) {
                     this.id = this.$store.getters.getLength + 1;
@@ -41,7 +42,6 @@ export default {
             }
 
             this.$store.commit('addNewString', newObj);
-            this.$store.commit('setListData', this.$store.commit('addNewString', newObj));
             this.$emit('delForm');
 
         }
@@ -56,7 +56,7 @@ export default {
 .form {
     padding: 40px;
     width: 30%;
-    height: 15vh;
+    height: 20vh;
     background-color: rgba(129, 129, 129, 0.938);
     border: 1px solid grey;
     position: absolute;

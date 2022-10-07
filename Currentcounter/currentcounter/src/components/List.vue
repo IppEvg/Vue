@@ -5,18 +5,31 @@
             <span>{{cost.data}}</span>
             <span>{{cost.category}}</span>
             <span>{{cost.value}}</span>
+            <span @click="cost.menu =!cost.menu" tag="button" class="menu">&#9776;
+                <ModalWindow v-if="cost.menu" />
+            </span>
         </div>
     </div>
 </template>
 
 <script>
+import ModalWindow from "./modalWindow.vue"
 export default {
     name: 'ListItem',
+    data() {
+        return {
+            isClick: false
+        }
+    },
+    components: { ModalWindow },
     computed: {
         list() {
 
             return this.$store.getters.getPaymentsList;
         }
+    },
+    methods: {
+
     }
 
 }
@@ -36,5 +49,17 @@ export default {
     justify-content: space-between;
     border-bottom: 1px solid rgb(170, 165, 165);
     align-items: center;
+}
+
+.menu {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+
 }
 </style>
