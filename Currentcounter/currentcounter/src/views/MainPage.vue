@@ -28,11 +28,11 @@ export default {
     methods: {
         changeMeth() {
             this.isShow = !this.isShow
-        },
+        }
 
     },
     mounted() {
-        this.$store.dispatch('fetchData');
+        this.$store.dispatch('fetchData')
     }
 
 

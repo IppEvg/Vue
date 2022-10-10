@@ -5,8 +5,8 @@
             <span>{{cost.data}}</span>
             <span>{{cost.category}}</span>
             <span>{{cost.value}}</span>
-            <span @click="cost.menu =!cost.menu" tag="button" class="menu">&#9776;
-                <ModalWindow v-if="cost.menu" />
+            <span v-on:click="$modal.show(cost)" class="menu">&#9776;
+                <ModalWindow v-bind:name="cost" />
             </span>
         </div>
     </div>
@@ -18,7 +18,7 @@ export default {
     name: 'ListItem',
     data() {
         return {
-            isClick: false
+
         }
     },
     components: { ModalWindow },
@@ -29,8 +29,15 @@ export default {
         }
     },
     methods: {
-
-    }
+        // onShow(name) {
+        //     if (this.name == name) {
+        //         this.isClick = !this.isClick
+        //     }
+        // }
+    },
+    // mounted() {
+    //     this.$modal.EventBus.$on('show', this.onShow)
+    // }
 
 }
 </script>

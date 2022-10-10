@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         onButton() {
-            let newObj = { id: this.id, data: this.data, category: this.category, value: this.value, menu: false };
+            let newObj = { id: this.id, data: this.data, category: this.category, value: this.value };
             for (var value of this.$store.state.costList) {
                 if (newObj.id == value.id) {
                     this.id = this.$store.getters.getLength + 1;

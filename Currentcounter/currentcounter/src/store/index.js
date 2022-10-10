@@ -41,7 +41,7 @@ export default new Vuex.Store({
       return new Promise((resolve) => {
 
         setTimeout(() => {
-          resolve(this.$store.costList)
+          resolve(this.$store.getters.getPaymentsList)
         }, 1000)
       })
         .then(res => {

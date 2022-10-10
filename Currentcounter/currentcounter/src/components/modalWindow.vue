@@ -1,12 +1,13 @@
 <template>
-    <div class="globalWindow">
+    <div class="globalWindow" v-if="isClick">
         <div class="cub"></div>
         <div class="window">
+            <div class="exit" v-on:click="$modal.hide()">&#10006;</div>
             <router-link class="router" to="RedactView"> <span class='menu-in'><span class='menu-in'>&#9998;</span>
                 </span>
                 Редактировать
             </router-link>
-            <a @click="deleteString"> <span class="menu-in">&#10008;</span> Удалить </a>
+            <a> <span class="menu-in">&#10008;</span> Удалить </a>
         </div>
     </div>
 </template>
@@ -14,12 +15,30 @@
 <script>
 export default {
     name: 'ModalWindow',
+    data() {
+        return {
+            isClick: false
+        }
+    },
+    props: {
+    },
     methods: {
+        onShow(cost) {
+            if (this.name == cost) {
+                this.isClick = true;
+            }
+        },
+        onHide() {
 
+            this.isClick = false;
+
+        }
+    },
+    mounted() {
+        this.$modal.EventBus.$on('show', this.onShow);
+        this.$modal.EventBus.$on('hide', this.onHide);
     }
-
 }
-
 
 </script>
 
@@ -48,6 +67,14 @@ export default {
     color: blue;
 
 }
+
+.exit {
+    position: absolute;
+    padding: 2px;
+    top: 3px;
+    right: 3px;
+}
+
 
 .router {
     color: #2c3e50;
