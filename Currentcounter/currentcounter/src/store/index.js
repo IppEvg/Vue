@@ -32,8 +32,12 @@ export default new Vuex.Store({
     addNewString: (state, obj) => {
       state.costList = [...state.costList, obj];
     },
-    delStr: (state, obj) => {
-      state.costList = state.costList.splice(obj, 1);
+    delStr: (state, idx) => {
+      state.costList.splice(idx, 1);
+
+    },
+    redactStr: (state, obj, idx) => {
+      state.costList.splice(idx, 1, obj)
     }
   },
   actions: {

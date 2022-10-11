@@ -1,12 +1,12 @@
 <template>
     <div class='cost-list'>
-        <div v-for="cost of list" v-bind:key="cost.id" class="cost-list__item">
+        <div v-for="(cost,idx) of list" v-bind:key="cost.idx" class="cost-list__item">
             <span>{{cost.id}}</span>
             <span>{{cost.data}}</span>
             <span>{{cost.category}}</span>
             <span>{{cost.value}}</span>
             <span v-on:click="$modal.show(cost)" class="menu">&#9776;
-                <ModalWindow v-bind:name="cost" />
+                <ModalWindow v-bind:name="cost" v-bind:idx="idx" />
             </span>
         </div>
     </div>
@@ -29,16 +29,8 @@ export default {
         }
     },
     methods: {
-        // onShow(name) {
-        //     if (this.name == name) {
-        //         this.isClick = !this.isClick
-        //     }
-        // }
-    },
-    // mounted() {
-    //     this.$modal.EventBus.$on('show', this.onShow)
-    // }
 
+    }
 }
 </script>
 

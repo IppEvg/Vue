@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import HomeView from '../views/MainPage'
 
 Vue.use(VueRouter)
@@ -7,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: HomeView
   },
   {
@@ -29,6 +30,16 @@ const routes = [
     path: '/food/:value?',
     name: 'FoodView',
     component: () => import('../views/FoodView.vue')
+  },
+  {
+    path: '/redact/',
+    name: "RedactView",
+    component: () => import("../components/RedactView.vue")
+  },
+  {
+    path: '/modal/',
+    name: "ModalWindow",
+    component: () => import("../components/modalWindow.vue")
   },
   {
     path: '*',

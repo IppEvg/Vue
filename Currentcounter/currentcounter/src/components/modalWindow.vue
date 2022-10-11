@@ -2,17 +2,19 @@
     <div class="globalWindow" v-if="isClick">
         <div class="cub"></div>
         <div class="window">
-            <div class="exit" v-on:click="$modal.hide()">&#10006;</div>
-            <router-link class="router" to="RedactView"> <span class='menu-in'><span class='menu-in'>&#9998;</span>
+
+            <router-link to="redact" class="router" :idx="idx" :name="name" v-on:delForm="changeMeth"> <span
+                    class='menu-in'><span class='menu-in'>&#9998;</span>
                 </span>
                 Редактировать
             </router-link>
-            <a> <span class="menu-in">&#10008;</span> Удалить </a>
+            <a @click="onDelete"> <span class="menu-in">&#10008;</span> Удалить </a>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'ModalWindow',
     data() {
@@ -21,19 +23,25 @@ export default {
         }
     },
     props: {
+        name: Object,
+        idx: Number
     },
     methods: {
-        onShow(cost) {
-            if (this.name == cost) {
-                this.isClick = true;
+        onShow(name) {
+            if (this.name == name) {
+                this.isClick = !this.isClick;
             }
         },
-        onHide() {
-
-            this.isClick = false;
-
+        onDelete() {
+            this.$store.commit('delStr', this.idx);
+            this.$store.getters.getPaymentsList;
+        },
+        changeMeth() {
+            this.isClick = !this.isClick
         }
+
     },
+
     mounted() {
         this.$modal.EventBus.$on('show', this.onShow);
         this.$modal.EventBus.$on('hide', this.onHide);
