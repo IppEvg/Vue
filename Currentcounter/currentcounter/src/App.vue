@@ -1,22 +1,47 @@
 <template>
-  <div id="appe">
+  <v-app>
+    <v-app-bar app>
+      <v-btn to="/" tag="button">Home</v-btn> |
+      <v-btn to="/transport" tag="button">Add a transport payment</v-btn> |
+      <v-btn to="/entertainment" tag="button">Add a entertainments payment</v-btn> |
+      <v-btn to="/health" tag="button">Add a health payment</v-btn> |
+      <v-btn to="/food" tag="button">Add a food payment</v-btn>
+    </v-app-bar>
 
-    <nav>
-      <router-link to="/" tag="button">Home</router-link> |
-      <router-link to="/transport" tag="button">add a transport payment</router-link> |
-      <router-link to="/entertainment" tag="button">add a entertainments payment</router-link> |
-      <router-link to="/health" tag="button">add a health payment</router-link> |
-      <router-link to="/food" tag="button">add a food payment</router-link>
-    </nav>
-    <div class="name">My counter of payments</div>
-    <router-view></router-view>
-  </div>
+    <v-main>
+      <div class="name">My counter of payments</div>
+      <router-view />
+
+      <div class="text-center">
+        <v-pagination v-model="page" :length="addNumberPage"></v-pagination>
+      </div>
+
+
+    </v-main>
+    <v-footer>
+      Copyright &copy;
+    </v-footer>
+  </v-app>
 </template>
 
+<script>
 
+export default {
+  name: 'App',
 
-
-
+  data: () => ({
+    //
+  }),
+  computed: {
+    addNumberPage() {
+      if (this.$store.getters.getLength > 5) {
+        let pages = Math.floor(this.$store.getters.getLength / 5);
+        return pages;
+      }
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 #appe {
@@ -58,5 +83,18 @@ h1 {
   color: rgb(107, 56, 155);
   font-family: Comic, serif;
   font-size: 25px;
+}
+
+.theme--light.v-footer {
+  background-color: #AAAA;
+}
+
+.v-btn {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+input {
+  background-color: rgb(228, 226, 226);
 }
 </style>

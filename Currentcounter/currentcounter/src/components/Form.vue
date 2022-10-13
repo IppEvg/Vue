@@ -54,14 +54,14 @@ export default {
 
 <style>
 .form {
-    padding: 40px;
-    width: 30%;
-    height: 20vh;
+    padding: 15px;
+    width: 40%;
+    height: 23vh;
     background-color: rgba(129, 129, 129, 0.938);
     border: 1px solid grey;
     position: absolute;
-    top: 25vh;
-    left: 32vw;
+    top: 20vh;
+    left: 30%;
     border-radius: 20px;
 }
 
@@ -72,16 +72,17 @@ export default {
 }
 
 .button {
+    width: 60%;
     background-color: blueviolet;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 2px;
     color: rgb(0, 0, 0);
     padding: 10px 20px;
-    transition: 300 ms;
+    transition: 300;
 }
 
 .button:hover {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: blueviolet;
 }
 </style>
