@@ -38,6 +38,9 @@ export default new Vuex.Store({
     },
     redactStr: (state, obj, idx) => {
       state.costList.splice(idx, 1, obj)
+    },
+    showPage: (state, idx1, idx2) => {
+      state.costList.slice(idx1, idx2)
     }
   },
   actions: {

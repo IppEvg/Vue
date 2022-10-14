@@ -12,12 +12,11 @@
       <div class="name">My counter of payments</div>
       <router-view />
 
-      <div class="text-center">
-        <v-pagination v-model="page" :length="addNumberPage"></v-pagination>
-      </div>
+      <BarChart />
 
 
     </v-main>
+
     <v-footer>
       Copyright &copy;
     </v-footer>
@@ -25,22 +24,34 @@
 </template>
 
 <script>
+import BarChart from './Chart'
+
 
 export default {
-  name: 'App',
 
-  data: () => ({
-    //
-  }),
-  computed: {
-    addNumberPage() {
-      if (this.$store.getters.getLength > 5) {
-        let pages = Math.floor(this.$store.getters.getLength / 5);
-        return pages;
-      }
-    }
-  }
-};
+  name: 'App',
+  components: { BarChart }
+  // props: {
+  //  chartData: {
+  //    type: Object,
+  //  required: true
+  //       hartOptions: {
+  //    type: Object,
+  //    default: () => { }
+
+  // }
+
+  //  computed: {
+  //    addNumberPage() {
+  //    if (this.$store.getters.getLength >= 5) {
+  //        this.page = Math.floor(this.$store.getters.getLength / 5);
+  //       return this.page;
+  //     } else {
+  //       return this.page;
+  //     }
+  //   }
+}
+
 </script>
 
 <style lang="scss">
@@ -96,5 +107,11 @@ h1 {
 
 input {
   background-color: rgb(228, 226, 226);
+  font: normal;
+}
+
+.v-toolbar__content,
+.v-toolbar__extension {
+  justify-content: center;
 }
 </style>
